@@ -74,7 +74,10 @@ d_ricker_single = r_ricker_single;
 %
 % r_i = d - sumF_i
 %
-% For each d, compute the proportion of species with r_i > 0
+% In the multi-species Ricker model, r_i can take
+% any real value without a positivity constraint.
+% Therefore, no additional feasibility restriction
+% on d arises from the value of r_i.
 %% =========================================================
 
 d_ricker_multi = linspace(0,10,500);
@@ -86,7 +89,7 @@ for k = 1:length(d_ricker_multi)
 
     r_i = d - sumF;
 
-    prop_ricker_multi(k) = sum(r_i > 0)/S;
+    prop_ricker_multi(k) = S/S;
 
 end
 
